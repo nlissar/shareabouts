@@ -11,12 +11,8 @@
 
 RailsAdmin.config do |config|
 
-  config.current_user_method { current_admin } # auto-generated
-  
-  # Set the admin name here (optional second array element will appear in a beautiful RailsAdmin red ©)
-  config.main_app_name = ['Shareabouts', 'Admin']
-  # or for a dynamic name:
-  # config.main_app_name = Proc.new { |controller| [Rails.application.engine_name.titleize, controller.params['action'].titleize] }
+  config.current_user_method { current_admin } 
+  config.main_app_name = Proc.new { |controller| [I18n.t('app_name'), 'Admin'] }
 
   #  ==> Authentication (before_filter)
   # This is run inside the controller instance so you can setup any authentication you need to.
@@ -55,6 +51,24 @@ RailsAdmin.config do |config|
   #  ==> Included models
   # Add all excluded models here:
   # config.excluded_models << []
+  
+  config.actions do
+    # root actions
+    dashboard                     # mandatory
+    # collection actions 
+    index                         # mandatory
+    collection :filter
+    new
+    export
+    history_index
+    bulk_delete
+    # member actions
+    show
+    edit
+    delete
+    show_in_app
+    
+  end
 
   # Add models here if you want to go 'whitelist mode':
   config.included_models += %w{SiteOption Admin FeaturePoint Comment LocationType Page Shapefile}
@@ -67,11 +81,6 @@ RailsAdmin.config do |config|
   #   # Configuration here will affect all included models in all scopes, handle with care!
   #
   #   list do
-  #     # Configuration here will affect all included models in list sections (same for show, export, edit, update, create)
-  #
-  #     fields :name, :other_name do
-  #       # Configuration here will affect all fields named [:name, :other_name], in the list section, for all included models
-  #     end
   #
   #     fields_of_type :date do
   #       # Configuration here will affect all date fields, in the list section, for all included models. See README for a comprehensive type list.
@@ -84,18 +93,11 @@ RailsAdmin.config do |config|
   config.model Shapefile do
     object_label_method :kind 
     list do
-      field :id
-      field :kind
-      field :data
-      field :workflow_state
-      field :default
+      fields :id, :kind, :data, :workflow_state, :default
     end
     
     edit do
-      field :data
-      field :kind
-      field :name_field
-      field :default
+      fields :data, :kind, :name_field, :default
     end
   end
   
@@ -104,9 +106,7 @@ RailsAdmin.config do |config|
     weight 1000
     
     list do
-      field :option_name
-      field :option_value
-      field :updated_at
+      fields :option_name, :option_value, :updated_at
       filters [:option_name]
       sort_by :option_name
     end
@@ -130,21 +130,14 @@ RailsAdmin.config do |config|
   
   config.model Page do
     edit do
-      field :title
+      fields :title, :status, :welcome_page, :menu_order
       field :content, :text do
         ckeditor true
       end
-      field :status
-      field :welcome_page
-      field :menu_order
     end
     
     list do
-      field :title
-      field :slug
-      field :status
-      field :welcome_page
-      field :menu_order
+      fields :title, :slug, :status, :welcome_page, :menu_order
     end
   end
   
@@ -153,32 +146,35 @@ RailsAdmin.config do |config|
     weight 100                     # Navigation priority. Bigger is higher.
     label "Point"
     label_plural "Points"
+    
+    configure :regions
+    
+    # filter do
+    #   methods :name
+    # end
 
     list do
       items_per_page 100
-      field :id
-      field :visible
-      field :name
+      fields :id, :visible, :name
+      field :regions do
+        searchable :name
+      end
       field :display_the_geom do
         label 'Location'
       end
-      # field :display_submitter do
-      #   label 'Submitter'
-      # end
       field :created_at
-      # filters [:id, :name]  # Array of field names which filters should be shown by default in the table header
+      # filters [:regions]
       # sort_by :id           # Sort column (default is primary key)
       # sort_reverse true     # Sort direction (default is true for primary key, last created first)
     end
     
     export do
-      field :id
+      fields :id, :description, :created_at
       field :latitude
       field :longitude
       field :name do
         label 'Title'
       end
-      field :description
       field :support_count
       field :user_id do
         label 'Submitter id'
@@ -186,26 +182,10 @@ RailsAdmin.config do |config|
       field :display_submitter do
         label 'Sumbitter name'
       end
-      field :created_at
     end
     
     # parent OtherModel             # Set parent model for navigation. MyModel will be nested below. OtherModel will be on first position of the dropdown
     # navigation_label              # Sets dropdown entry's name in navigation. Only for parents!
-    #   show do
-    #     # Here goes the fields configuration for the show view
-    #   end
-    #   export do
-    #     # Here goes the fields configuration for the export view (CSV, yaml, XML)
-    #   end
-    #   edit do
-    #     # Here goes the fields configuration for the edit view (for create and update view)
-    #   end
-    #   create do
-    #     # Here goes the fields configuration for the create view, overriding edit section settings
-    #   end
-    #   update do
-    #     # Here goes the fields configuration for the update view, overriding edit section settings
-    #   end
   end
 
 # fields configuration is described in the Readme, if you have other question, ask us on the mailing-list!

@@ -1,15 +1,7 @@
 # The keys show up in the dropdown list when you are adding a new place
 # The values map the place type to map icons (defined below).
 place_types: {
-  Park: {
-    default: blue,
-    focused: red
-  },
-  School: {
-    default: blue,
-    focused: red
-  },
-  Landmark: {
+  Regional Rail Station: {
     default: blue,
     focused: red
   }
@@ -35,26 +27,38 @@ place_type_icons: {
 }
 
 survey: {
-  title: Leave a Comment,
-  form_link_text: Leave a Comment,
-  submit_btn_text: Comment,
+  title: Tell us about this station,
+  form_link_text: Tell us more,
+  submit_btn_text: Submit,
   show_responses: true,
-  submission_type: comments,
-  response_name: comment(s),
+  submission_type: surveys, #always this?
+  response_name: contribution(s),
   items: [
+    {
+      prompt: "How many bicycles can park at this station?",
+      label: Bike Parking Available,
+      type: text,
+      name: parking_count,
+      attrs: [
+        { key: placeholder, value: "#"}
+      ]
+    }, {
+      prompt: Your Name,
+      label: Name,
+      type: text,
+      name: submitter_name,
+      optional: true
+    },
     {
       prompt: Comment,
       type: textarea,
-      name: comment
-    },
-    {
-      prompt: Your Name,
-      type: text,
-      name: submitter_name
-    }]
+      name: comment,
+      optional: true
+    }
+  ]
 }
 
 support: {
-  submit_btn_text: Support This!,
+  submit_btn_text: I'd park my bike here!,
   submission_type: support
 }

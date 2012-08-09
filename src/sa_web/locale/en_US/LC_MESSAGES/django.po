@@ -57,19 +57,19 @@ msgstr ""
 #: jstemplates/place-form.html:2 jstemplates/place-form_flymake.html:2
 #, fuzzy
 msgid "Submitter Name"
-msgstr "Your Name"
+msgstr ""
 
 #: jstemplates/place-form.html:3 jstemplates/place-form_flymake.html:3
 msgid "Submitter Name Placeholder"
-msgstr "Name"
+msgstr ""
 
 #: jstemplates/place-form.html:4
 msgid "Place Form Header"
-msgstr "Tell us more&hellip;"
+msgstr ""
 
 #: jstemplates/place-form.html:5 jstemplates/place-form_flymake.html:4
 msgid "Description Placeholder"
-msgstr "Description..."
+msgstr ""
 
 #: jstemplates/place-form.html:6 jstemplates/place-form_flymake.html:5
 msgid "Location Name"
@@ -77,7 +77,7 @@ msgstr ""
 
 #: jstemplates/place-form.html:7 jstemplates/place-form_flymake.html:6
 msgid "Submit Location Button"
-msgstr "Submit Location"
+msgstr ""
 
 #: jstemplates/place-form.html:8 jstemplates/place-form_flymake.html:7
 msgid ""
@@ -89,7 +89,7 @@ msgstr ""
 
 #: jstemplates/place-form.html:12 jstemplates/place-form_flymake.html:11
 msgid "Point Description"
-msgstr "Description"
+msgstr ""
 
 #: jstemplates/submitter-or-anonymous.html:1
 msgid "Anonymous Name"
@@ -98,11 +98,11 @@ msgstr "Someone"
 #: templates/index.html:15 templates/index.html.py:52
 #: templates/index_flymake.html:15 templates/index_flymake.html.py:52
 msgid "App Name"
-msgstr "Shareabouts"
+msgstr "Bike Parking Survey"
 
 #: templates/index.html:58 templates/index_flymake.html:58
 msgid "Add Place"
-msgstr "Add Location"
+msgstr ""
 
 #: templates/index.html:63 templates/index_flymake.html:63
 #, fuzzy

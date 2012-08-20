@@ -27,12 +27,17 @@ place_type_icons: {
 }
 
 survey: {
+  submission_type: surveys,
+
+  # Response display config
+  show_responses: true,
+  response_name: contribution(s),
+  action_text: "gave their input on",
+
+  # Survey form config
   title: Tell us about this station,
   form_link_text: Tell us more,
   submit_btn_text: Submit,
-  show_responses: true,
-  submission_type: surveys, #always this?
-  response_name: contribution(s),
   items: [
     {
       prompt: "How many bicycles can park at this station?",
@@ -59,6 +64,8 @@ survey: {
 }
 
 support: {
+  submission_type: support,
+
   submit_btn_text: I'd park my bike here!,
-  submission_type: support
+  action_text: "said they'd park their bike at"
 }

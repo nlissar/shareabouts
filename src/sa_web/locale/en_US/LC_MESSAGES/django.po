@@ -55,7 +55,6 @@ msgid "Location Type"
 msgstr ""
 
 #: jstemplates/place-form.html:2 jstemplates/place-form_flymake.html:2
-#, fuzzy
 msgid "Submitter Name"
 msgstr ""
 
@@ -105,6 +104,5 @@ msgid "Add Place"
 msgstr ""
 
 #: templates/index.html:63 templates/index_flymake.html:63
-#, fuzzy
 msgid "Close Button"
 msgstr "Close"

@@ -31,7 +31,8 @@ survey: {
 
   # Response display config
   show_responses: true,
-  response_name: contribution(s),
+  response_name: estimation,
+  response_plural_name: estimations,
   action_text: "gave their input on",
 
   # Survey form config
@@ -56,6 +57,7 @@ survey: {
     },
     {
       prompt: Comment,
+      label: Comment,
       type: textarea,
       name: comment,
       optional: true

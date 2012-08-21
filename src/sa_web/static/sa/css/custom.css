@@ -5,10 +5,10 @@ body, select, input, textarea {
   color: #000;
   font-family: Arial, sans-serif;
 }
-a, a:active, a:visited { 
-  color: #1e5395; 
+a, a:active, a:visited {
+  color: #1e5395;
 }
-a:hover { 
+a:hover {
   color: #1e5395;
 }
 
@@ -16,10 +16,10 @@ a:hover {
   color: #d8d8d8;
   background-color: #000;
 }
-#site-header a, #site-header a:active, #site-header a:visited { 
+#site-header a, #site-header a:active, #site-header a:visited {
   color: #fff;
 }
-#site-header a:hover { 
+#site-header a:hover {
 /*  color: red;*/
 }
 #site-title {
@@ -95,10 +95,10 @@ textarea {
 }
 a.reply-link {
   background: #eef8fd;
-  color: #1e5395; 
+  color: #1e5395;
 }
 a.reply-link:hover {
-  background-color: #e2d795; 
+  background-color: #e2d795;
   color: #fff;
 }
 .promotion {
@@ -107,7 +107,7 @@ a.reply-link:hover {
 }
 #user_support label {
   background-color: #eef8fd;
-  color: #1e5395; 
+  color: #1e5395;
 }
 #user_support:hover label,
 #user_support label:hover {

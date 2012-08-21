@@ -682,6 +682,32 @@ article.response footer {
   display: none;
 }
 
+/* Survey response layout */
+
+.survey-header {
+  color: #203e5a;
+  padding-right: 7em;
+}
+
+.response-label-parking_count {
+  display: none;
+}
+
+.response-label-comment {
+  display: none;
+}
+
+.response-item-parking_count {
+  float: right;
+  margin-top: -2.5em;
+}
+
+.response-value-parking_count {
+  color: #203e5a;
+  font-size: 3em;
+  font-weight: bold;
+}
+
 /* Ticker */
 #ticker {
   display: none;

@@ -27,14 +27,21 @@ place_type_icons: {
 }
 
 survey: {
+  submission_type: surveys,
+
+  # Response display config
+  show_responses: true,
+  response_name: estimation,
+  response_plural_name: estimations,
+  action_text: "gave their input on",
+
+  # Survey form config
   title: Tell us about this station,
   form_link_text: Tell us more,
   submit_btn_text: Submit,
-  show_responses: true,
-  submission_type: surveys, #always this?
-  response_name: contribution(s),
   items: [
     {
+<<<<<<< HEAD
       prompt: "How many bicycles can park at this station?",
       label: Bike Parking Available,
       type: text,
@@ -43,6 +50,14 @@ survey: {
         { key: placeholder, value: "#"}
       ]
     }, {
+=======
+      prompt: Comment,
+      label: Comment,
+      type: textarea,
+      name: comment
+    },
+    {
+>>>>>>> a48214cfd54ba3771af740b492ccd150fc61fe07
       prompt: Your Name,
       label: Name,
       type: text,
@@ -51,6 +66,7 @@ survey: {
     },
     {
       prompt: Comment,
+      label: Comment,
       type: textarea,
       name: comment,
       optional: true
@@ -59,6 +75,8 @@ survey: {
 }
 
 support: {
+  submission_type: support,
+
   submit_btn_text: I'd park my bike here!,
-  submission_type: support
+  action_text: "said they'd park their bike at"
 }

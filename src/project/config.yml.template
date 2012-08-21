@@ -31,13 +31,13 @@ survey: {
 
   # Response display config
   show_responses: true,
-  response_name: estimation of parking capacity,
-  response_plural_name: estimations of parking capacity,
+  response_name: estimation,
+  response_plural_name: estimations,
   action_text: "gave their input on",
 
   # Survey form config
   title: Tell us about this station,
-  form_link_text: Tell us more,
+  form_link_text: "How many bikes can park here?",
   submit_btn_text: Submit,
   items: [
     {

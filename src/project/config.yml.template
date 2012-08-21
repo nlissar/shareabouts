@@ -31,8 +31,8 @@ survey: {
 
   # Response display config
   show_responses: true,
-  response_name: estimation,
-  response_plural_name: estimations,
+  response_name: estimation of parking capacity,
+  response_plural_name: estimations of parking capacity,
   action_text: "gave their input on",
 
   # Survey form config

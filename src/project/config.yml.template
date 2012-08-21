@@ -41,7 +41,6 @@ survey: {
   submit_btn_text: Submit,
   items: [
     {
-<<<<<<< HEAD
       prompt: "How many bicycles can park at this station?",
       label: Bike Parking Available,
       type: text,
@@ -50,14 +49,6 @@ survey: {
         { key: placeholder, value: "#"}
       ]
     }, {
-=======
-      prompt: Comment,
-      label: Comment,
-      type: textarea,
-      name: comment
-    },
-    {
->>>>>>> a48214cfd54ba3771af740b492ccd150fc61fe07
       prompt: Your Name,
       label: Name,
       type: text,

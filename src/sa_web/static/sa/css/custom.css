@@ -128,19 +128,21 @@ ul.recent-points {
   color: #fff;
 }
 
-.survey-header {
-  text-indent: -9999px;
-}
-
 .place-submission-details {
   display: none;
+}
+
+/* Survey response layout */
+
+.survey-header {
+  text-indent: -9999px;
 }
 
 .response-header {
   text-align: right;
 }
 
-#content p.response-value {
+p.response-value {
   margin-bottom: 0.3em !important;
 }
 

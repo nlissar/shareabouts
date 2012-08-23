@@ -694,13 +694,6 @@ article.response footer {
   display: none;
 }
 
-/* Survey response layout */
-
-.survey-header {
-  color: #203e5a;
-  padding-right: 7em;
-}
-
 /* Ticker */
 #ticker {
   display: none;

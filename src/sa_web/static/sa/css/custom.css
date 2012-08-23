@@ -44,16 +44,11 @@ a#nav-bttn:hover {
   color: #b2c045;
 }
 #access {
-  border: 1em solid #b2c045;
-  border-top: 0.5em solid #b2c045;
-  background: #e2d795;
 }
 #access li {
-  border-bottom: 2px solid #b2c045;
 }
 #access a:hover {
   background: #b2c045;
-  color: #1e5395;
 }
 
 a.add-place {
@@ -131,4 +126,43 @@ ul.recent-points {
 .recent-points li:hover a,
 .recent-points a:hover {
   color: #fff;
+}
+
+.survey-header {
+  text-indent: -9999px;
+}
+
+.place-submission-details {
+  display: none;
+}
+
+.response-header {
+  text-align: right;
+}
+
+#content p.response-value {
+  margin-bottom: 0.3em !important;
+}
+
+.response-label-parking_count {
+  display: none;
+}
+
+.response-label-comment {
+  display: none;
+}
+
+.response-item-parking_count {
+  margin-top: -2.5em;
+}
+
+.response-value-parking_count {
+  color: #203e5a;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.response-value-parking_count:after {
+  content: " bikes";
+  font-size: 0.5em;
 }

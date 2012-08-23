@@ -71,3 +71,16 @@ support: {
   submit_btn_text: I'd park my bike here!,
   action_text: "said they'd park their bike at"
 }
+
+pages:
+  - title: About
+    slug: about
+    url: /static/sa/pages/overview.html
+
+  - title: "Why Shareabouts?"
+    slug: why
+    url: /static/sa/pages/why.html
+
+  - title: Features
+    slug: features
+    url: /static/sa/pages/features.html

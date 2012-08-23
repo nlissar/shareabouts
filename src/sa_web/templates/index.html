@@ -50,9 +50,19 @@
 
   <header id="site-header" class="clearfix">
     <h1 id="site-title"><a href="#">{% trans "App Name"  %}</a></h1>
+    <div id="pages-nav-container"></div>
   </header>
 
   <div role="main" id="main">
+    <noscript>
+      <div class="noscript">
+      <h3>Oops, {% trans "App Name"  %} needs JavaScript to achieve full awesomeness.</h3>
+      <p>{% trans "App Name"  %} is great but it needs something called JavaScript to work
+        properly. But fear not, it's really easy to turn on. Click
+        <a href="http://enable-javascript.com/" target="_blank">here</a> for simple instructions!</p>
+      </div>
+    </noscript>
+
     <div id="map-container">
       <div id="map"></div>
     </div>
@@ -85,6 +95,7 @@
 
   <script src="{{STATIC_URL}}sa/js/utils.js"></script>
   <script src="{{STATIC_URL}}sa/js/models.js"></script>
+  <script src="{{STATIC_URL}}sa/js/views/pages-nav-view.js"></script>
   <script src="{{STATIC_URL}}sa/js/views/activity-view.js"></script>
   <script src="{{STATIC_URL}}sa/js/views/app-view.js"></script>
   <script src="{{STATIC_URL}}sa/js/views/layer-view.js"></script>
@@ -102,6 +113,7 @@
   {% mustacheich "place-detail-support" %}
   {% mustacheich "activity-list-item" %}
   {% mustacheich "submitter-or-anonymous" %}
+  {% mustacheich "pages-nav" %}
 
   <script type="text/javascript">
   // moment.lang({{locale}});
@@ -114,7 +126,8 @@
         placeTypes = {},
 
         surveyConfig = {{ survey_config_json|safe }},
-        supportConfig = {{ support_config_json|safe }};
+        supportConfig = {{ support_config_json|safe }},
+        pagesConfig = {{ pages_config_json|safe }};
 
     // Define each Leaflet Icon type
     _.each(placeTypeIconsConfig, function(config, name) {
@@ -140,15 +153,6 @@
     });
 
     $(function() {
-      // add menu button for small screens
-      $('<a href="#" id="nav-bttn">&equiv;</a>').insertAfter('#site-title');
-
-      // toggle menu visibility
-      $('#nav-bttn').click(function(){
-        $('#access').toggleClass('expose');
-        return false;
-      });
-
       // Ready set go!
       window.app = new Shareabouts.App({
         places: {{ places_json|safe }},
@@ -156,7 +160,8 @@
         userToken: {{ user_token_json|safe }},
         placeTypes: placeTypes,
         surveyConfig: surveyConfig,
-        supportConfig: supportConfig
+        supportConfig: supportConfig,
+        pagesConfig: pagesConfig
       });
       Backbone.history.start({pushState: true});
     });

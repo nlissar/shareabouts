@@ -3,6 +3,7 @@ import yaml
 import json
 import time
 import hashlib
+import httpagentparser
 
 from django.shortcuts import render
 from django.conf import settings
@@ -22,20 +23,21 @@ class ShareaboutsApi (object):
 
 @ensure_csrf_cookie
 def index(request):
-    # Bootstrapping initial data.
+    # Get initial data for bootstrapping into the page.
     api = ShareaboutsApi()
-
-    # Load app config settings
-    with open(settings.SHAREABOUTS_CONFIG) as config_yml:
-        config = yaml.load(config_yml)
-    place_types_json = json.dumps(config['place_types'])
-    place_type_icons_json = json.dumps(config['place_type_icons'])
-    survey_config_json = json.dumps(config['survey'])
-    support_config_json = json.dumps(config['support'])
 
     # TODO These requests should be done asynchronously (in parallel).
     places_json = api.get('places/', u'[]')
     activity_json = api.get('activity/?limit=20', u'[]')
+
+    # Load app config settings
+    with open(settings.SHAREABOUTS_CONFIG) as config_yml:
+        config = yaml.load(config_yml)
+
+    place_types_json = json.dumps(config['place_types'])
+    place_type_icons_json = json.dumps(config['place_type_icons'])
+    survey_config_json = json.dumps(config['survey'])
+    support_config_json = json.dumps(config['support'])
 
     # Get the content of the static pages linked in the menu.
     pages_config = config.get('pages', [])
@@ -74,6 +76,11 @@ def index(request):
 
     user_token_json = u'"{0}"'.format(request.session['user_token'])
 
+    # Get the browser that the user is using.
+    user_agent_string = request.META['HTTP_USER_AGENT']
+    user_agent = httpagentparser.detect(user_agent_string)
+    user_agent_json = json.dumps(user_agent)
+
     context = {'places_json': places_json,
                'activity_json': activity_json,
                'place_types_json': place_types_json,
@@ -81,7 +88,8 @@ def index(request):
                'survey_config_json': survey_config_json,
                'support_config_json': support_config_json,
                'user_token_json': user_token_json,
-               'pages_config_json': pages_config_json }
+               'pages_config_json': pages_config_json,
+               'user_agent_json': user_agent_json }
     return render(request, 'index.html', context)
 
 

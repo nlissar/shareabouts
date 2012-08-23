@@ -76,3 +76,4 @@ pages:
   - title: About
     slug: about
     url: /static/sa/pages/overview.html
+    start_page: true

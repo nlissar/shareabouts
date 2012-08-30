@@ -2,6 +2,7 @@ import requests
 from django.http import HttpResponse
 from django.http import QueryDict
 
+
 def proxy_view(request, url, requests_args=None):
     """
     Forward as close to an exact copy of the request as possible along to the
@@ -23,7 +24,7 @@ def proxy_view(request, url, requests_args=None):
 
     # Explicitly set content-length request header, as some servers will
     # want it and complain without it.
-    headers['CONTENT-LENGTH'] = unicode(len(requests_args['data']))
+    headers['CONTENT-LENGTH'] = str(len(requests_args['data']))
 
     requests_args['headers'].update(headers)
     requests_args['params'].update(request.GET)
@@ -45,10 +46,12 @@ def proxy_view(request, url, requests_args=None):
                   'proxy-authorization', 'te', 'trailers', 'transfer-encoding',
                   'upgrade', 'content-encoding']
     for key, value in response.headers.iteritems():
-        if key.lower() in hop_by_hop: continue
+        if key.lower() in hop_by_hop:
+            continue
         proxy_response[key] = value
 
     return proxy_response
+
 
 def get_headers(environ):
     """

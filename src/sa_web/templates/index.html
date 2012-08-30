@@ -12,8 +12,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=IE7">
 
-  <title>{% trans "App Name" %}</title>
-  <meta name="description" content="Shareabouts is awesome!">
+  <title>{% trans "App Title" %}</title>
+  <meta name="description" content="{% trans "App Description" %}">
   <meta name="author" content="">
 
   <!-- Mobile Viewport Fix -->
@@ -158,7 +158,8 @@
 
         surveyConfig = {{ survey_config_json|safe }},
         supportConfig = {{ support_config_json|safe }},
-        pagesConfig = {{ pages_config_json|safe }};
+        pagesConfig = {{ pages_config_json|safe }},
+        mapConfig = {{ map_config_json|safe }};
 
     // Define each Leaflet Icon type
     _.each(placeTypeIconsConfig, function(config, name) {
@@ -192,7 +193,8 @@
         placeTypes: placeTypes,
         surveyConfig: surveyConfig,
         supportConfig: supportConfig,
-        pagesConfig: pagesConfig
+        pagesConfig: pagesConfig,
+        mapConfig: mapConfig
       });
     });
   })(Shareabouts, jQuery);

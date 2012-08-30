@@ -11,33 +11,47 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from proxy.views import proxy_view
 
 
-class ShareaboutsApi (object):
-    def __init__(self, root=settings.SHAREABOUTS_API_ROOT):
-        self.root = root
+def make_resource_uri(dataset, resource, root=settings.SHAREABOUTS_API_ROOT):
+    resource = resource.strip('/')
+    dataset = dataset.strip('/')
+    root = root.rstrip('/')
+    uri = '%s/datasets/%s/%s/' % (root, dataset, resource)
+    return uri
 
-    def get(self, path, default=None):
-        res = requests.get(self.root + path,
+
+class ShareaboutsApi (object):
+    def __init__(self, dataset, root=settings.SHAREABOUTS_API_ROOT):
+        self.root = root
+        self.dataset = dataset
+
+    def get(self, resource, default=None, **kwargs):
+        uri = make_resource_uri(self.dataset, resource, root=self.root)
+        res = requests.get(uri, params=kwargs,
                            headers={'Accept': 'application/json'})
         return (res.text if res.status_code == 200 else default)
 
 
 @ensure_csrf_cookie
 def index(request):
-    # Get initial data for bootstrapping into the page.
-    api = ShareaboutsApi()
-
-    # TODO These requests should be done asynchronously (in parallel).
-    places_json = api.get('places/', u'[]')
-    activity_json = api.get('activity/?limit=20', u'[]')
-
     # Load app config settings
     with open(settings.SHAREABOUTS_CONFIG) as config_yml:
         config = yaml.load(config_yml)
+
+    # TODO: Is it weird to get the API_ROOT and the dataset path from
+    # separate config files?
+
+    # Get initial data for bootstrapping into the page.
+    api = ShareaboutsApi(dataset=config['dataset'])
 
     place_types_json = json.dumps(config['place_types'])
     place_type_icons_json = json.dumps(config['place_type_icons'])
     survey_config_json = json.dumps(config['survey'])
     support_config_json = json.dumps(config['support'])
+    map_config_json = json.dumps(config['map'])
+
+    # TODO These requests should be done asynchronously (in parallel).
+    places_json = api.get('places', default=u'[]')
+    activity_json = api.get('activity', limit=20, default=u'[]')
 
     # Get the content of the static pages linked in the menu.
     pages_config = config.get('pages', [])
@@ -89,10 +103,14 @@ def index(request):
                'support_config_json': support_config_json,
                'user_token_json': user_token_json,
                'pages_config_json': pages_config_json,
-               'user_agent_json': user_agent_json }
+               'map_config_json': map_config_json,
+               'user_agent_json': user_agent_json}
     return render(request, 'index.html', context)
 
 
 def api(request, path):
-    url = settings.SHAREABOUTS_API_ROOT + path
+    with open(settings.SHAREABOUTS_CONFIG) as config_yml:
+        config = yaml.load(config_yml)
+    dataset = config['dataset']
+    url = make_resource_uri(dataset, path)
     return proxy_view(request, url)

@@ -25,6 +25,7 @@ var Shareabouts = Shareabouts || {};
         surveyConfig: options.surveyConfig,
         supportConfig: options.supportConfig,
         pagesConfig: options.pagesConfig,
+        mapConfig: options.mapConfig,
         userToken: options.userToken,
         router: this
       });
@@ -43,7 +44,9 @@ var Shareabouts = Shareabouts || {};
           return pageConfig.start_page === true;
         });
 
-        this.navigate('page/' + startPageConfig.slug);
+        if (startPageConfig && startPageConfig.slug) {
+          this.navigate('page/' + startPageConfig.slug);
+        }
       }
     },
 

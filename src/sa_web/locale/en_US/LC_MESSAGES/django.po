@@ -94,7 +94,7 @@ msgstr "Description"
 
 #: jstemplates/place-form.html:8
 msgid "Submit Location Button"
-msgstr "Submit Location"
+msgstr "Submit"
 
 #: jstemplates/submitter-or-anonymous.html:1
 msgid "Anonymous Name"
@@ -137,16 +137,16 @@ msgstr ""
 
 #: templates/index.html:15
 msgid "App Title"
-msgstr "Shareabouts"
+msgstr "Better ATM"
 
 #: templates/index.html:16
 msgid "App Description"
-msgstr "Shareabouts is a mapping tool to gather crowd sourced public input. Use it to collect suggested locations and comments in a social, engaging process."
+msgstr "Better ATM helps you find the lowest ATM surcharges near you. It's powered by Shareabouts, a mapping tool to gather crowd sourced public input."
 
 #: templates/index.html:53 templates/index.html.py:62 templates/index.html:63
 msgid "App Name"
-msgstr "Shareabouts"
+msgstr "Better ATM"
 
 #: templates/index.html:71
 msgid "Add Place"
-msgstr "Add Location"
+msgstr "Add an ATM"

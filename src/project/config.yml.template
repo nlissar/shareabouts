@@ -1,17 +1,17 @@
 # The Shareabouts API dataset username & name used by this map.
+# You MUST change this after creating a dataset.
+dataset: openplans/atm_surcharge
 # And the associated API key.
-# You MUST change these after creating a dataset.
-dataset: demo-user/demo-data
 dataset_api_key: AbcXyzPdq
 
 # Settings for map and layer configs
 map:
   options:
     center:
-      lat: 39.9523524
-      lng: -75.1636075
-    zoom: 14
-    minZoom: 10
+      lat:  40.7197294
+      lng: -73.9996361
+    zoom: 15
+    minZoom: 11
     maxZoom: 17
   base_layer:
     url: http://{s}.tiles.mapbox.com/v3/mapbox.mapbox-streets/{z}/{x}/{y}.png
@@ -21,15 +21,7 @@ map:
 # The keys show up in the dropdown list when you are adding a new place
 # The values map the place type to map icons (defined below).
 place_types: {
-  Park: {
-    default: blue,
-    focused: red
-  },
-  School: {
-    default: blue,
-    focused: red
-  },
-  Landmark: {
+  ATM: {
     default: blue,
     focused: red
   }
@@ -52,6 +44,10 @@ place_type_icons: {
     iconAnchor: { x: 12, y: 41 },
     popupAnchor: { x: 12, y: 6 }
   }
+}
+
+place: {
+
 }
 
 survey: {

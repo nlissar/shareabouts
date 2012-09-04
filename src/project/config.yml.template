@@ -125,11 +125,3 @@ pages:
     slug: about
     url: /static/sa/pages/overview.html
     start_page: true
-
-  - title: "Why Shareabouts?"
-    slug: why
-    url: /static/sa/pages/why.html
-
-  - title: Features
-    slug: features
-    url: /static/sa/pages/features.html

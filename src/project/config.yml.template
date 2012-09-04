@@ -30,16 +30,20 @@ place_types:
 # for documention of each property. Any omitted property will be undefined.
 place_type_icons:
   blue:
-    iconUrl: /static/sa/css/images/feature-point.png
+    iconUrl: /static/sa/css/images/marker-dollar.png
+    shadowUrl: /static/sa/css/images/marker-shadow.png
     iconSize:
-      width: 17
-      height: 18
+      width: 25
+      height: 41
+    shadowSize:
+      width: 41
+      height: 41
     iconAnchor:
-      x: 9
-      y: 9
+      x: 12
+      y: 41
     popupAnchor:
-      x: 9
-      y: 9
+      x: 12
+      y: 6
   red:
     iconUrl: /static/sa/css/images/marker-focused.png
     shadowUrl: /static/sa/css/images/marker-shadow.png
@@ -58,23 +62,23 @@ place_type_icons:
 
 place:
   can_add_places: true # Not yet supported
-  title: Tell us more...
+  title: Tell us about this ATM
   items:
-    - prompt: Location Name
+    - prompt: Short Description
       type: text
       name: name
       attrs:
         - key: placeholder
-          value: Location Name
+          value: E.g. The BofA on the corner of Canal and Broadway
+    - prompt: Surcharge
+      type: text
+      name: surcharge
+      label: 'Surcharge: $'
+      attrs:
+        - key: placeholder
+          value: $
         - key: size
           value: 30
-    - prompt: Location Type
-      type: select
-      options:
-        - Landmark
-        - Park
-        - School
-      name: location_type
     - prompt: Your Name
       type: text
       name: submitter_name
@@ -84,32 +88,29 @@ place:
           value: Name
         - key: size
           value: 30
-    - prompt: Description
-      type: textarea
-      name: description
-      optional: true
+    - type: hidden
+      name: location_type
       attrs:
-        - key: placeholder
-          value: Description...
+        - key: value
+          value: ATM
 
 survey:
   submission_type: comments
 
   # Response display config
   show_responses: true
-  response_name: comment
-  response_plural_name: comments
-  action_text: commented on
+  response_name: tip
+  response_plural_name: tips
+  action_text: left a tip
 
   # Survey form config
-  title: Leave a Comment
-  form_link_text: Leave a Comment
-  submit_btn_text: Comment
+  title: Add a Tip
+  form_link_text: Add a Tip!
+  submit_btn_text: Submit
   items:
-    - prompt: Comment
-      label: Comment
+    - prompt: Add a Tip
       type: textarea
-      name: comment
+      name: tip
     - prompt: Your Name
       type: text
       name: submitter_name

@@ -47,7 +47,49 @@ place_type_icons: {
 }
 
 place: {
+  can_add_places: true, # TODO: not yet supported
 
+  title: Tell us more...,
+  items: [
+    {
+      prompt: Location Name,
+      type: text,
+      name: name,
+      attrs: [
+        {key: placeholder, value: Location Name},
+        {key: size, value: 30}
+      ]
+    },
+    {
+      prompt: Location Type,
+      type: select,
+      options: [
+        Landmark,
+        Park,
+        School
+      ],
+      name: location_type
+    },
+    {
+      prompt: Your Name,
+      type: text,
+      name: submitter_name,
+      optional: true,
+      attrs: [
+        {key: placeholder, value: Name},
+        {key: size, value: 30}
+      ]
+    },
+    {
+      prompt: Description,
+      type: textarea,
+      name: description,
+      optional: true,
+      attrs: [
+        {key: placeholder, value: Description...}
+      ]
+    }
+  ]
 }
 
 survey: {

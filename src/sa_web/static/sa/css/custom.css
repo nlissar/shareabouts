@@ -59,25 +59,34 @@ a#nav-bttn:hover {
 }
 #access li {
 }
+#access a {
+  font-family: 'LeagueGothicRegular';
+  font-weight: normal;
+  font-size: 1.5em;
+}
 #access a:hover {
   background-color: #ff99bb;
 }
 
 a.add-place {
   font-family: 'LeagueGothicRegular';
+  font-weight: normal;
   text-transform: uppercase;
   color: #fff;
   background-color: #ff99bb;
   text-shadow: 1px -1px 0 #cc7a96;
   border-top: 1px solid #ffccdd;
   border-right: 1px solid #ffccdd;
-     -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-          border-radius: 10px;
+     -moz-border-radius: 0.4em;
+  -webkit-border-radius: 0.4em;
+          border-radius: 0.4em;
 }
 a.add-place:hover {
   background-color: #ff80aa;
   text-shadow: 1px -1px 0 #cc6688;
+}
+.add-place span {
+  font-size: 1.25em;
 }
 a.close-bttn {
   color: #ff99bb;
@@ -98,6 +107,13 @@ textarea {
   color: #fff;
   background-color: #ff99bb;
   text-shadow: 1px -1px 0 #cc7a96;
+  font-family: 'LeagueGothicRegular';
+  font-weight: normal;
+  font-size: 2em;
+  padding: 0.5em 0.75em;
+     -moz-border-radius: 0.4em;
+  -webkit-border-radius: 0.4em;
+          border-radius: 0.4em;
 }
 .bttn:hover {
   background-color: #ff80aa;
@@ -169,6 +185,16 @@ ul.recent-points {
 @media only screen and (min-width: 768px) { /* menu is visible */
   #access {
     top: 0;
+  }
+  #access a {
+    font-family: 'LeagueGothicRegular';
+    font-weight: normal;
+    font-size: 1.5em;
+    line-height: 1.75em;
+    padding: 0 1em;
+       -moz-border-radius: 0.4em;
+    -webkit-border-radius: 0.4em;
+            border-radius: 0.4em;
   }
 }
 

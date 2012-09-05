@@ -68,24 +68,9 @@ Option         |Type      |Default   |Description
 
 ### Input forms
 
-
+TODO
 
 ### Interface Text
 
-The text for the interface is split
+TODO
 
-
-Deploying to DotCloud
----------------------
-
-At OpenPlans, we have been deploying Shareabouts to DotCloud internally, so many
-of the files necessary are already in the repository. What you'll need to do is:
-
-* Create a new DotCloud instance
-* Push the code to DotCloud
-
-    dotcloud push <instance name>
-
-* Set your API key
-
-    dotcloud var set SHAREABOUTS_API_KEY=<api key>

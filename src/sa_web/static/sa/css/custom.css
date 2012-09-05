@@ -1,9 +1,18 @@
-/*body {
-  background: #EEF8FD;
+@font-face {
+    font-family: 'LeagueGothicRegular';
+    src: url('http://www.fontsquirrel.com/utils/load_demo_font.php?font=816/League_Gothic-webfont.eot');
+    src: url('http://www.fontsquirrel.com/utils/load_demo_font.php?font=816/League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://www.fontsquirrel.com/utils/load_demo_font.php?font=816/League_Gothic-webfont.woff') format('woff'),
+         url('http://www.fontsquirrel.com/utils/load_demo_font.php?font=816/League_Gothic-webfont.ttf') format('truetype'),
+         url('http://www.fontsquirrel.com/utils/load_demo_font.php?font=816/League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
 }
 body, select, input, textarea {
-  color: #000;
-  font-family: Arial, sans-serif;
 }
 a, a:active, a:visited {
   color: #1e5395;
@@ -13,47 +22,41 @@ a:hover {
 }
 
 #site-header {
-  color: #d8d8d8;
-  background-color: #000;
+  color: #eee;
+  background: #8fafbf url(images/nosur-logo-sm.png) 0.5em center no-repeat scroll;
 }
 #site-header a, #site-header a:active, #site-header a:visited {
   color: #fff;
 }
 #site-header a:hover {
-  /* color: red; * /
 }
 #site-title {
-  font-family: Arial, sans-serif;
-  color: #fff;
   text-shadow: none;
 }
 #site-title a:link,
 #site-title a:visited {
-  /* setting #site-title font size here works with media queries * /
-  font-size: 0.75em;
-  color: #fff;
+  display: block;
+  width: 154px;
+  text-indent: -9999px;
+  position: relative;
+  left: -0.125em;
 }
 #site-title a:hover {
-  color: #fff;
 }
+
 a#nav-bttn {
-  background: #b2c045;
+  background: #cce4f0;
+  color: #148fcc;
 }
 a#nav-bttn:hover {
   background: #fff;
-  color: #b2c045;
+  color: #148fcc;
 }
 #access {
-  border: 1em solid #b2c045;
-  border-top: 0.5em solid #b2c045;
-  background: #e2d795;
 }
 #access li {
-  border-bottom: 2px solid #b2c045;
 }
 #access a:hover {
-  background: #b2c045;
-  color: #1e5395;
 }
 
 a.add-place {
@@ -67,7 +70,7 @@ a.add-place:hover {
 a.close-bttn {
   color: #e2d795;
   border-color: #e2d795;
-  /* This should always be a Helvetica stack * /
+  /* This should always be a Helvetica stack */
   font-family: "Helvetica Neue", Arial, Helvetica, serif;
 }
 a.close-bttn:hover {
@@ -79,7 +82,7 @@ label {
 }
 input[type=text],
 textarea {
-/*  border: 1px solid purple;* /
+/*  border: 1px solid purple;*/
 }
 .required {
   color: red;
@@ -131,4 +134,24 @@ ul.recent-points {
 .recent-points li:hover a,
 .recent-points a:hover {
   color: #fff;
-}*/
+}
+
+@media only screen and (min-width: 1024px) { /* ticker is visible */
+  #site-header {
+    background-image: url(images/nosur-logo-med.png);
+  }
+  #site-title a:link,
+  #site-title a:visited {
+    width: 176px;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  #site-header {
+    background-image: url(images/nosur-logo.png);
+  }
+  #site-title a:link,
+  #site-title a:visited {
+    width: 210px;
+  }
+}

@@ -137,15 +137,15 @@ msgstr ""
 
 #: templates/index.html:15
 msgid "App Title"
-msgstr "Better ATM"
+msgstr "No sur!"
 
 #: templates/index.html:16
 msgid "App Description"
-msgstr "Better ATM helps you find the lowest ATM surcharges near you. It's powered by Shareabouts, a mapping tool to gather crowd sourced public input."
+msgstr "Say \"No sur!\" to ATM surcharges. Find the lowest ATM surcharges near you. It's powered by Shareabouts, a mapping tool to gather crowd sourced public input."
 
 #: templates/index.html:53 templates/index.html.py:62 templates/index.html:63
 msgid "App Name"
-msgstr "Better ATM"
+msgstr "No sur!"
 
 #: templates/index.html:71
 msgid "Add Place"

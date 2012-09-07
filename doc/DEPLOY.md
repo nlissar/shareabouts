@@ -23,17 +23,16 @@ of the files necessary are already in the repository.
   repository (eg. github or whatever you're using for version
   control);  otherwise you must use the dotcloud push --all option.
 
-  Also be sure to specify a branch if you're using one. See
-  `dotcloud push --help` for more info.
+  For more options, see `dotcloud push --help`
 
 * Set your API key and root URL:
 
     dotcloud var set <instance name> SHAREABOUTS_API_KEY=<api key> \
-	                                 SHAREABOUTS_API_ROOT=<api root url>
+                                   SHAREABOUTS_API_ROOT=<api root url>
 
 
 * Now restart the application:
 
-    dotcloud restart shareabouts.www
+    dotcloud restart <instance name>.www
 
 Should be all done!

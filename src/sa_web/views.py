@@ -32,7 +32,7 @@ class ShareaboutsApi (object):
 
 
 @ensure_csrf_cookie
-def index(request):
+def index(request, default_place_type):
     # Load app config settings
     with open(settings.SHAREABOUTS_CONFIG) as config_yml:
         config = yaml.load(config_yml)
@@ -49,6 +49,11 @@ def index(request):
     support_config_json = json.dumps(config['support'])
     map_config_json = json.dumps(config['map'])
     place_config_json = json.dumps(config['place'])
+
+    if default_place_type in config['place_types']:
+        validated_default_place_type = default_place_type
+    else:
+        validated_default_place_type = ''
 
     # TODO These requests should be done asynchronously (in parallel).
     places_json = api.get('places', default=u'[]')
@@ -106,7 +111,8 @@ def index(request):
                'pages_config_json': pages_config_json,
                'map_config_json': map_config_json,
                'place_config_json': place_config_json,
-               'user_agent_json': user_agent_json}
+               'user_agent_json': user_agent_json,
+               'default_place_type': validated_default_place_type}
     return render(request, 'index.html', context)
 
 

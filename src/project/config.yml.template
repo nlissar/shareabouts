@@ -109,6 +109,7 @@ survey:
   submission_type: surveys
 
   # Response display config
+  pretty_datetime_format: MMM D \at h:mm a
   show_responses: true
   response_name: survey
   response_plural_name: surveys
@@ -122,6 +123,7 @@ survey:
     - prompt: How many people are using this space right now?
       type: text
       name: usage
+      label: People Count
       attrs:
         - key: placeholder
           value: '#'
@@ -130,6 +132,7 @@ survey:
     - prompt: What are they doing?
       type: textarea
       name: description
+      label: Description
       optional: true
       attrs:
         - key: placeholder
@@ -153,4 +156,3 @@ pages:
   - title: About
     slug: about
     url: /static/sa/pages/overview.html
-    start_page: true

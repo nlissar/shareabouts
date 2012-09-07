@@ -57,6 +57,13 @@ msgid ""
 "                  </span>\n"
 "                  "
 msgstr ""
+"                  <strong class=\"response-date\">\n"
+"                    {{ pretty_created_datetime }}\n"
+"                  </strong>\n"
+"                  <span class=\"response-submitter\">\n"
+"                    (Submitted by {{> submitter-or-anonymous }})\n"
+"                  </span>\n"
+"                  "
 
 #: jstemplates/place-detail.html:1
 msgid ""

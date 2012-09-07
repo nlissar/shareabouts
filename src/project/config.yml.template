@@ -10,12 +10,13 @@ map:
     center:
       lat: 39.957833
       lng: -75.169379
-    zoom: 17
-    minZoom: 17
-    maxZoom: 17
+    zoom: 20
+    minZoom: 20
+    maxZoom: 20
   base_layer:
-    url: http://{s}.tiles.mapbox.com/v3/mapbox.mapbox-streets/{z}/{x}/{y}.png
+    url: /static/tiles/{z}/{x}/{y}.png
     attribution: '&copy; OpenStreetMap contributors, CC-BY-SA. <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
+    maxZoom: 20
   layers: []
 
 # The keys show up in the dropdown list when you are adding a new place

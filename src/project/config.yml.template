@@ -129,3 +129,15 @@ pages:
     slug: about
     url: /static/sa/pages/about.html
     start_page: true
+
+  - title: Schools
+    external: true
+    url: /school
+
+  - title: Sidewalk Cracks
+    external: true
+    url: /sidewalk crack
+
+  - title: SROs
+    external: true
+    url: /sro

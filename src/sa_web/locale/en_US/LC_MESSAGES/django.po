@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-27 14:41-0500\n"
+"POT-Creation-Date: 2012-09-07 12:31-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,6 +39,10 @@ msgid ""
 "          "
 msgstr ""
 
+#: jstemplates/add-places.html:1
+msgid "Add Place"
+msgstr ""
+
 #: jstemplates/place-detail-survey.html:1
 msgid "{{ prompt }}{{# optional }} (optional){{/ optional }}"
 msgstr ""
@@ -65,36 +69,8 @@ msgid ""
 msgstr ""
 
 #: jstemplates/place-form.html:1
-msgid "Location Type"
-msgstr ""
-
-#: jstemplates/place-form.html:2
-msgid "Submitter Name"
-msgstr "Your Name"
-
-#: jstemplates/place-form.html:3
-msgid "Submitter Name Placeholder"
-msgstr "Name"
-
-#: jstemplates/place-form.html:4
-msgid "Description Placeholder"
-msgstr "Description..."
-
-#: jstemplates/place-form.html:5
-msgid "Location Name"
-msgstr ""
-
-#: jstemplates/place-form.html:6
-msgid "Place Form Header"
-msgstr "Tell us more&hellip;"
-
-#: jstemplates/place-form.html:7
-msgid "Point Description"
-msgstr "Description"
-
-#: jstemplates/place-form.html:8
 msgid "Submit Location Button"
-msgstr "Submit Location"
+msgstr "Submit"
 
 #: jstemplates/submitter-or-anonymous.html:1
 msgid "Anonymous Name"
@@ -120,7 +96,7 @@ msgstr ""
 "instead.\n"
 "    "
 
-#: jstemplates/unsupported-overlay.html:7 templates/index.html:76
+#: jstemplates/unsupported-overlay.html:7 templates/index.html:74
 msgid "Close Button"
 msgstr "Close"
 
@@ -137,16 +113,29 @@ msgstr ""
 
 #: templates/index.html:15
 msgid "App Title"
-msgstr "Shareabouts"
+msgstr "Sister Cities Park Usage Survey"
 
 #: templates/index.html:16
 msgid "App Description"
-msgstr "Shareabouts is a mapping tool to gather crowd sourced public input. Use it to collect suggested locations and comments in a social, engaging process."
+msgstr ""
+"Shareabouts is a mapping tool to gather crowd sourced public input. Use it "
+"to collect suggested locations and comments in a social, engaging process."
 
 #: templates/index.html:53 templates/index.html.py:62 templates/index.html:63
 msgid "App Name"
-msgstr "Shareabouts"
+msgstr "Sister Cities Park Usage Survey"
 
-#: templates/index.html:71
-msgid "Add Place"
-msgstr "Add Location"
+#~ msgid "Submitter Name"
+#~ msgstr "Your Name"
+
+#~ msgid "Submitter Name Placeholder"
+#~ msgstr "Name"
+
+#~ msgid "Description Placeholder"
+#~ msgstr "Description..."
+
+#~ msgid "Place Form Header"
+#~ msgstr "Tell us more&hellip;"
+
+#~ msgid "Point Description"
+#~ msgstr "Description"

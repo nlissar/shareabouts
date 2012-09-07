@@ -1,6 +1,6 @@
 # The Shareabouts API dataset username & name used by this map.
 # You MUST change this after creating a dataset.
-dataset: demo-user/demo-data
+dataset: openplans/sc-usage
 # And the associated API key.
 dataset_api_key: AbcXyzPdq
 
@@ -8,10 +8,10 @@ dataset_api_key: AbcXyzPdq
 map:
   options:
     center:
-      lat: 39.9523524
-      lng: -75.1636075
-    zoom: 14
-    minZoom: 10
+      lat: 39.957833
+      lng: -75.169379
+    zoom: 17
+    minZoom: 17
     maxZoom: 17
   base_layer:
     url: http://{s}.tiles.mapbox.com/v3/mapbox.mapbox-streets/{z}/{x}/{y}.png
@@ -21,13 +21,19 @@ map:
 # The keys show up in the dropdown list when you are adding a new place
 # The values map the place type to map icons (defined below).
 place_types:
-  Landmark:
+  Park Bench:
     default: blue
     focused: red
-  Park:
+  Cafe:
     default: blue
     focused: red
-  School:
+  Plaza:
+    default: blue
+    focused: red
+  Garden:
+    default: blue
+    focused: red
+  Lawn:
     default: blue
     focused: red
 
@@ -62,10 +68,10 @@ place_type_icons:
       y: 6
 
 place:
-  adding_supported: true
-  title: Tell us more...
+  adding_supported: false
+  title: Add a part of the park to survey
   items:
-    - prompt: Location Name
+    - prompt: Name
       type: text
       name: name
       attrs:
@@ -73,12 +79,14 @@ place:
           value: Location Name
         - key: size
           value: 30
-    - prompt: Location Type
+    - prompt: Type
       type: select
       options:
-        - Landmark
-        - Park
-        - School
+        - Cafe
+        - Garden
+        - Lawn
+        - Park Bench
+        - Plaza
       name: location_type
     - prompt: Your Name
       type: text
@@ -98,26 +106,43 @@ place:
           value: Description...
 
 survey:
-  submission_type: comments
+  submission_type: surveys
 
   # Response display config
   show_responses: true
-  response_name: comment
-  response_plural_name: comments
-  action_text: commented on
+  response_name: survey
+  response_plural_name: surveys
+  action_text: surveyed
 
   # Survey form config
-  title: Leave a Comment
-  form_link_text: Leave a Comment
-  submit_btn_text: Comment
+  title: Record Usage
+  form_link_text: Record Usage
+  submit_btn_text: Submit
   items:
-    - prompt: Comment
-      label: Comment
+    - prompt: How many people are using this space right now?
+      type: text
+      name: usage
+      attrs:
+        - key: placeholder
+          value: '#'
+        - key: size
+          value: 30
+    - prompt: What are they doing?
       type: textarea
-      name: comment
+      name: description
+      optional: true
+      attrs:
+        - key: placeholder
+          value: Description...
     - prompt: Your Name
       type: text
       name: submitter_name
+      optional: true
+      attrs:
+        - key: placeholder
+          value: Name
+        - key: size
+          value: 30
 
 support:
   submission_type: support
@@ -129,11 +154,3 @@ pages:
     slug: about
     url: /static/sa/pages/overview.html
     start_page: true
-
-  - title: "Why Shareabouts?"
-    slug: why
-    url: /static/sa/pages/why.html
-
-  - title: Features
-    slug: features
-    url: /static/sa/pages/features.html

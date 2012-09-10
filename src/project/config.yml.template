@@ -124,14 +124,16 @@ pages:
     url: /static/sa/pages/about.html
     start_page: true
 
-  - title: Schools
-    external: true
-    url: /school
+  - title: Types of Places
+    pages:
+      - title: Schools
+        external: true
+        url: /school
 
-  - title: Sidewalk Cracks
-    external: true
-    url: /sidewalk crack
+      - title: Sidewalk Cracks
+        external: true
+        url: /sidewalk crack
 
-  - title: SROs
-    external: true
-    url: /sro
+      - title: SROs
+        external: true
+        url: /sro

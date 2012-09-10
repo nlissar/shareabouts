@@ -56,9 +56,6 @@ place_type_icons:
     iconAnchor:
       x: 12
       y: 41
-    popupAnchor:
-      x: 12
-      y: 6
 
 place:
   adding_supported: true

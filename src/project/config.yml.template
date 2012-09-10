@@ -23,19 +23,19 @@ map:
 # The keys show up in the dropdown list when you are adding a new place
 # The values map the place type to map icons (defined below).
 place_types:
-  Park Bench:
-    default: bigplus
-    focused: bigplusselected
   Cafe:
-    default: bigplus
-    focused: bigplusselected
-  Plaza:
     default: bigplus
     focused: bigplusselected
   Garden:
     default: bigplus
     focused: bigplusselected
   Lawn:
+    default: bigplus
+    focused: bigplusselected
+  Park Bench:
+    default: bigplus
+    focused: bigplusselected
+  Water:
     default: bigplus
     focused: bigplusselected
 
@@ -84,7 +84,7 @@ place:
         - Garden
         - Lawn
         - Park Bench
-        - Plaza
+        - Water
       name: location_type
     - prompt: Your Name
       type: text

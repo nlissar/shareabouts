@@ -8,8 +8,9 @@
 -------------------------------------------------------------- */
 
 body, select, input, textarea {
-/*  color: #000;*/
-/*  font-family: "Comic Sans MS", cursive, sans-serif;*/
+  color: #303a40;
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: -0.1em;
 }
 
 
@@ -17,11 +18,11 @@ body, select, input, textarea {
 -------------------------------------------------------------- */
 
 a, a:active, a:visited {
-/*  color: #ff40ff;*/
+  color: #53acc0;
 }
 
 a:hover {
-/*  color: #e500e5;*/
+  color: #00bbe5;
 }
 
 
@@ -29,16 +30,16 @@ a:hover {
 -------------------------------------------------------------- */
 
 #site-header {
-/*  color: #fff;*/
-/*  background-color: #994c99;*/
+  color: #737b80;
+  background: #fff2e5 url(images/sister-cities-logo-sm.gif) left center no-repeat scroll;
 }
 
 #site-header a, #site-header a:active, #site-header a:visited {
-/*  color: #ff80ff;*/
+  color: #474766;
 }
 
 #site-header a:hover {
-  /* color: #ffbfff; */
+   color: #fff2e5; 
 }
 
 
@@ -58,7 +59,12 @@ a:hover {
 #site-title a:link,
 #site-title a:visited { 
 /*  font-size: 0.75em;*/
-/*  color: #fff;*/
+/*  color: #a66c6c;*/
+  display: block;
+  width: 190px;
+  text-indent: -9999px;
+  position: relative;
+  left: -0.125em;
 }
 
 #site-title a:hover {
@@ -69,14 +75,16 @@ a:hover {
 /* =Mobile Navigation Button
 -------------------------------------------------------------- */
 
-a#nav-bttn {
-/*  color: #bf00bf;*/
-/*  background: #ffbfff;*/
+a#nav-bttn:link,
+a#nav-bttn:visited {
+  font-family: Arial, sans-serif;
+  color: #e5c3c3;
+  background: #a66c6c;
 }
 
 a#nav-bttn:hover {
-/*  color: #ffbfff;*/
-/*  background: #fff;*/
+  color: #a66c6c;
+  background: #e5c3c3;
 }
 
 
@@ -84,18 +92,19 @@ a#nav-bttn:hover {
 -------------------------------------------------------------- */
 
 #access {
-/*  border: 1em solid #994c99;*/
-/*  border-top: 0.5em solid #994c99;*/
-/*  background: #994c99;*/
+  border-color: #fff2e5;
+  border-top: 0.5em solid #fff2e5;
+  background: #fff2e5;
 }
 
 #access li {
-/*  border-bottom: 2px solid #994c99;*/
+  border-bottom: 2px solid #fff2e5;
+  background: #e5dacf;
 }
 
 #access a:hover {
-/*  color: #ffbfff;*/
-/*  background: #fff;*/
+  color: #fff2e5;
+  background: #a66c6c;
 }
 
 
@@ -121,16 +130,21 @@ a.add-place:hover {
  * This Helvetica stack produces a good X close icon. */
 
 a.close-bttn {
-/*  color: #ff40ff;*/
+  color: #a66c6c;
 /*  background-color: #fff;*/
 /*  border-color: #ffbfff;*/
-/*  font-family: "Helvetica Neue", Arial, Helvetica, serif;*/
+  font-family: "Helvetica Neue", Arial, Helvetica, serif;
 }
 
 a.close-bttn:hover {
-/*  color: #e500e5;*/
+  color: #8c4d4d;
 /*  background-color: #fff;*/
 /*  border-color: #e500e5;*/
+}
+
+a.close-bttn span {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
 }
 
 
@@ -138,7 +152,7 @@ a.close-bttn:hover {
 -------------------------------------------------------------- */
 
 label {
-/*  color: #806080;*/
+  color: #a66c6c;
 }
 
 input[type=text],
@@ -152,41 +166,42 @@ textarea {
 
 .bttn {
 /*  color: #eee;*/
-/*  background-color: #ff40ff;*/
-/*  text-shadow: none;*/
+  background-color: #52aabe;
+  text-shadow: 1px -1px 0 #3a92a6;
 }
 
 .bttn:hover {
 /*  color: #fff;*/
-/*  background-color: #e500e5;*/
+  background-color: #3a92a6;
+  text-shadow: 1px -1px 0 #23798c;
 }
 
 a.reply-link {
 /*  color: #1e5395;*/
-/*  background: #eef8fd;*/
+  background: #52aabe;
 }
 
 a.reply-link:hover {
 /*  color: #fff;*/
-/*  background-color: #e500e5;*/
+  background-color: #8c4d4d;
 }
 
 
 /* =Voting & Social Promotion 
 -------------------------------------------------------------- */
 .promotion {
-/*  background-color: #bf8fbf;*/
+  background-color: #e4edf2;
 /*  border-bottom: 0.5em solid #806080;*/
 }
 
 #user_support label {
-/*  color: #ff80ff;*/
+  color: #3a92a6;
 /*  background-color: #fff;*/
 }
 
 #user_support:hover label,
 #user_support label:hover {
-/*  color: #e500e5;*/
+  color: #23798c;
 }
 
 
@@ -202,15 +217,15 @@ a.reply-link:hover {
 -------------------------------------------------------------- */
 
 #ticker {
-/*  background-color: #806080;*/
+  background-color: #e5dacf;
 }
 
 ul.recent-points {
-/*  color: #eee;*/
+/*  color: #fff;*/
 }
 
 .recent-points li {
-/*  border-bottom: 3px solid #664c66;*/
+  border-bottom: 2px solid #ccc2b8;
 }
 
 .recent-points li:hover {
@@ -218,10 +233,48 @@ ul.recent-points {
 }
 
 .recent-points a {
-/*  color: #eee;*/
+  color: #737b80;
 }
 
 .recent-points li:hover a,
 .recent-points a:hover {
-/*  color: #fff;*/
+  background-color: #8c4d4d;
+  color: #fff;
 }
+
+
+/* =Media Queries
+-------------------------------------------------------------- */
+
+@media only screen and (min-width: 768px) { /* menu is visible */
+  #access {
+    border-top: 0;
+  }
+  #access li {
+    border-bottom: 0;
+    background: transparent;
+  }
+}
+
+@media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+  #site-header {
+    background-image: url(images/sister-cities-logo-sm-x2.gif);
+  }
+}
+
+@media only screen and (min-width: 1024px) { /* ticker is visible */
+  #site-header {
+    background-image: url(images/sister-cities-logo-med.gif);
+  }
+  #site-title a:link,
+  #site-title a:visited {
+    width: 270px;
+  }
+}
+
+@media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
+  #site-header {
+    background-image: url(images/sister-cities-logo-med-x2.gif);
+  }
+}
+

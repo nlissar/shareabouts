@@ -1,7 +1,7 @@
-/* 
- * This CSS file follows the default Shareabouts style.css. 
- * All rules herein will override the default Shareabouts styles. 
- * NOTE: "With great power comes great responsibility." 
+/*
+ * This CSS file follows the default Shareabouts style.css.
+ * All rules herein will override the default Shareabouts styles.
+ * NOTE: "With great power comes great responsibility."
  */
 
 /* =Base Typography
@@ -39,14 +39,14 @@ a:hover {
 }
 
 #site-header a:hover {
-   color: #fff2e5; 
+   color: #fff2e5;
 }
 
 
 /* =Logo
 -------------------------------------------------------------- */
 
-/* NOTE: Adjust the #site-title font size in the link 
+/* NOTE: Adjust the #site-title font size in the link
  * (not in the #site-title itself) using the em unit,
  * as to not break it scaling via media queries. */
 
@@ -57,7 +57,7 @@ a:hover {
 }
 
 #site-title a:link,
-#site-title a:visited { 
+#site-title a:visited {
 /*  font-size: 0.75em;*/
 /*  color: #a66c6c;*/
   display: block;
@@ -126,7 +126,7 @@ a.add-place:hover {
 /* =Close Content Button
 -------------------------------------------------------------- */
 
-/* NOTE: The font should be overridden with caution. 
+/* NOTE: The font should be overridden with caution.
  * This Helvetica stack produces a good X close icon. */
 
 a.close-bttn {
@@ -187,11 +187,11 @@ a.reply-link:hover {
 }
 
 
-/* =Voting & Social Promotion 
+/* =Voting & Social Promotion
 -------------------------------------------------------------- */
 .promotion {
-  background-color: #e4edf2;
-/*  border-bottom: 0.5em solid #806080;*/
+  /* Not supported in this app */
+  display: none;
 }
 
 #user_support label {

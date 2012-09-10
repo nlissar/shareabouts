@@ -29,15 +29,16 @@ place_types:
   Cafe:
     default: blue
     focused: red
-  Plaza:
-    default: blue
-    focused: red
   Garden:
     default: blue
     focused: red
   Lawn:
     default: blue
     focused: red
+  Water:
+    default: blue
+    focused: red
+
 
 # Defines place icons. See http://leaflet.cloudmade.com/reference.html#icon
 # for documention of each property. Any omitted property will be undefined.
@@ -88,7 +89,7 @@ place:
         - Garden
         - Lawn
         - Park Bench
-        - Plaza
+        - Water
       name: location_type
     - prompt: Your Name
       type: text

@@ -59,15 +59,15 @@ place:
   adding_supported: true
   title: Tell us more...
   items:
-    - prompt: Location Name
+    - prompt: Feature Name
       type: text
       name: name
       attrs:
         - key: placeholder
-          value: Location Name
+          value: "The feature's name, or a short description..."
         - key: size
           value: 30
-    - prompt: Location Type
+    - prompt: Type of Feature
       type: select
       options:
         - School
@@ -89,7 +89,7 @@ place:
       optional: true
       attrs:
         - key: placeholder
-          value: Description...
+          value: Description of the feature...
 
 survey:
   submission_type: comments

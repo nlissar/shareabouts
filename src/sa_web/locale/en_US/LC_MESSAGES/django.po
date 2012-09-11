@@ -38,6 +38,24 @@ msgid ""
 "          {{/ is_place }}\n"
 "          "
 msgstr ""
+"<strong>\n"
+"          {{> submitter-or-anonymous }}\n"
+"          </strong>\n"
+"          {{# is_place }}\n"
+"            added a <span class=\"place-type\">{{ place.location_type }}</"
+"span>\n"
+"            {{# place.name }} named <span class=\"place-name\">{{ place."
+"name }}</span>{{/ place.name }}\n"
+"          {{/ is_place }}\n"
+"\n"
+"          {{^ is_place }}\n"
+"            {{ action }}\n"
+"            {{# place.name }}<span class=\"place-name\">{{ place.name }}</"
+"span>{{/ place.name }}\n"
+"            {{^ place.name }}a{{# place.type_starts_with_vowel }}n{{/ place."
+"type_starts_with_vowel }} {{ place.location_type }}{{/ place.name }}\n"
+"          {{/ is_place }}\n"
+"          "
 
 #: jstemplates/place-detail-survey.html:1
 msgid "{{ prompt }}{{# optional }} (optional){{/ optional }}"
@@ -94,7 +112,7 @@ msgstr "Description"
 
 #: jstemplates/place-form.html:8
 msgid "Submit Location Button"
-msgstr "Submit Location"
+msgstr "Add the Feature"
 
 #: jstemplates/submitter-or-anonymous.html:1
 msgid "Anonymous Name"
@@ -137,16 +155,16 @@ msgstr ""
 
 #: templates/index.html:15
 msgid "App Title"
-msgstr "CB7 Map Demo"
+msgstr "CB7 Community Map"
 
 #: templates/index.html:16
 msgid "App Description"
-msgstr "CB7 Map Demo is a mapping tool to gather crowd sourced public input in Manhattan's Upper West Side."
+msgstr "CB7 Community Map is a mapping tool to gather crowd sourced public input in Manhattan's Upper West Side."
 
 #: templates/index.html:53 templates/index.html.py:62 templates/index.html:63
 msgid "App Name"
-msgstr "CB7 Map Demo"
+msgstr "CB7 Community Map"
 
 #: templates/index.html:71
 msgid "Add Place"
-msgstr "Add Location"
+msgstr "Add a Feature"

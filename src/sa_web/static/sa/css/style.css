@@ -707,6 +707,9 @@ article.response footer {
 .response-box label {
   display: none;
 }
+.response-label-comment {
+  display: none;
+}
 
 /* Ticker */
 #ticker {

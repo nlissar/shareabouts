@@ -166,6 +166,10 @@ pages:
 
   - title: Types of Places
     pages:
+      - title: All
+        external: true
+        url: /
+
       - title: Schools
         external: true
         url: /school

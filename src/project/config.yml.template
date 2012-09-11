@@ -22,28 +22,68 @@ map:
 # The values map the place type to map icons (defined below).
 place_types:
   School:
-    default: blue
-    focused: red
+    default: green_feature
+    focused: green_focussed
   'Sidewalk Crack':
-    default: blue
-    focused: red
+    default: red_feature
+    focused: red_focussed
   SRO:
-    default: blue
-    focused: red
+    default: blue_feature
+    focused: blue_focussed
 
 # Defines place icons. See http://leaflet.cloudmade.com/reference.html#icon
 # for documention of each property. Any omitted property will be undefined.
 place_type_icons:
-  blue:
-    iconUrl: /static/sa/css/images/feature-point.png
+  blue_feature:
+    iconUrl: /static/sa/css/images/feature-point-blue.png
     iconSize:
       width: 17
       height: 18
     iconAnchor:
       x: 9
       y: 9
-  red:
-    iconUrl: /static/sa/css/images/marker-focused.png
+  red_feature:
+    iconUrl: /static/sa/css/images/feature-point-red.png
+    iconSize:
+      width: 17
+      height: 18
+    iconAnchor:
+      x: 9
+      y: 9
+  green_feature:
+    iconUrl: /static/sa/css/images/feature-point-green.png
+    iconSize:
+      width: 17
+      height: 18
+    iconAnchor:
+      x: 9
+      y: 9
+  blue_focussed:
+    iconUrl: /static/sa/css/images/marker-focused-blue.png
+    shadowUrl: /static/sa/css/images/marker-shadow.png
+    iconSize:
+      width: 25
+      height: 41
+    shadowSize:
+      width: 41
+      height: 41
+    iconAnchor:
+      x: 12
+      y: 41
+  red_focussed:
+    iconUrl: /static/sa/css/images/marker-focused-red.png
+    shadowUrl: /static/sa/css/images/marker-shadow.png
+    iconSize:
+      width: 25
+      height: 41
+    shadowSize:
+      width: 41
+      height: 41
+    iconAnchor:
+      x: 12
+      y: 41
+  green_focussed:
+    iconUrl: /static/sa/css/images/marker-focused-green.png
     shadowUrl: /static/sa/css/images/marker-shadow.png
     iconSize:
       width: 25

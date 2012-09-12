@@ -120,7 +120,7 @@ msgstr ""
 
 #: templates/index.html:15
 msgid "App Title"
-msgstr "Sister Cities Park Usage Survey"
+msgstr "Sister Cities Park Survey"
 
 #: templates/index.html:16
 msgid "App Description"
@@ -130,7 +130,7 @@ msgstr ""
 
 #: templates/index.html:53 templates/index.html.py:62 templates/index.html:63
 msgid "App Name"
-msgstr "Sister Cities Park Usage Survey"
+msgstr "Sister Cities Park Survey"
 
 #~ msgid "Submitter Name"
 #~ msgstr "Your Name"

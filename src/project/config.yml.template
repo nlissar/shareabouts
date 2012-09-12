@@ -151,6 +151,6 @@ support:
   action_text: "supported"
 
 pages:
-  - title: About
-    slug: about
-    url: /static/sa/pages/overview.html
+  - title: Instructions
+    slug: instructions
+    url: /static/sa/pages/instructions.html

@@ -186,6 +186,11 @@ a.reply-link:hover {
   background-color: #8c4d4d;
 }
 
+/* =Place Details
+-------------------------------------------------------------- */
+.place-submission-details {
+  display: none;
+}
 
 /* =Voting & Social Promotion
 -------------------------------------------------------------- */

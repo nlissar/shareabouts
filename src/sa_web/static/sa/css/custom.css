@@ -259,14 +259,14 @@ ul.recent-points {
 @media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
   #site-header {
     background-image: url(images/sister-cities-logo-sm-x2.gif);
-    background-size: 50%;
+    background-size: 205px 52px;
+    background-size: contain;
   }
 }
 
 @media only screen and (min-width: 1024px) { /* ticker is visible */
   #site-header {
     background-image: url(images/sister-cities-logo-med.gif);
-    background-size: 100%;
   }
   #site-title a:link,
   #site-title a:visited {
@@ -277,7 +277,8 @@ ul.recent-points {
 @media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
   #site-header {
     background-image: url(images/sister-cities-logo-med-x2.gif);
-    background-size: 50%;
+    background-size: 298px 78px;
+    background-size: contain;
   }
 }
 

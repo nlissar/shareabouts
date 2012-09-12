@@ -11,11 +11,11 @@ map:
       lat: 39.957833
       lng: -75.169379
     zoom: 20
-    minZoom: 20
+    minZoom: 19
     maxZoom: 20
   base_layer:
     url: /static/tiles/{z}/{x}/{y}.png
-    attribution: '&copy; OpenStreetMap contributors, CC-BY-SA. <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
+    attribution: '&copy; OpenStreetMap contributors, CC-BY-SA. Tiles by <a href="http://openplans.org">OpenPlans</a>.'
     maxZoom: 20
     tms: true
   layers: []

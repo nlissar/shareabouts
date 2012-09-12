@@ -71,7 +71,7 @@
     </div>
 
     <div id="content">
-      <a href="#" class="close-bttn">&times;<span>{% trans "Close Button" %}</span></a>
+      <a href="#" class="close-bttn">&#10005;<span> {% trans "Close Button" %}</span></a>
       <article class="point"><!-- .point or .page -->
       </article>
     </div><!-- end #content -->
@@ -145,6 +145,7 @@
   {% mustacheich "place-detail-support" %}
   {% mustacheich "activity-list-item" %}
   {% mustacheich "submitter-or-anonymous" %}
+  {% mustacheich "pages-nav-item" %}
   {% mustacheich "pages-nav" %}
   {% mustacheich "unsupported-overlay" %}
   {% mustacheich "add-places" %}
@@ -174,7 +175,7 @@
         shadowUrl: config.shadowUrl,
         iconSize: new L.Point(config.iconSize.width, config.iconSize.height),
         iconAnchor: new L.Point(config.iconAnchor.x, config.iconAnchor.y),
-        popupAnchor: new L.Point(config.popupAnchor.x, config.popupAnchor.y)
+        popupAnchor: new L.Point(config.iconAnchor.x, config.iconAnchor.y)
       });
     });
 

@@ -61,10 +61,10 @@ a:hover {
 /*  font-size: 0.75em;*/
 /*  color: #a66c6c;*/
   display: block;
-  width: 190px;
+  width: 243px;
   text-indent: -9999px;
   position: relative;
-  left: -0.125em;
+  left: -0.25em;
 }
 
 #site-title a:hover {
@@ -264,7 +264,7 @@ ul.recent-points {
 @media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
   #site-header {
     background-image: url(images/sister-cities-logo-sm-x2.gif);
-    background-size: 205px 52px;
+    background-size: 252px 52px;
     background-size: contain;
   }
 }
@@ -275,14 +275,14 @@ ul.recent-points {
   }
   #site-title a:link,
   #site-title a:visited {
-    width: 270px;
+    width: 443px;
   }
 }
 
 @media only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2) {
   #site-header {
     background-image: url(images/sister-cities-logo-med-x2.gif);
-    background-size: 298px 78px;
+    background-size: 461px 78px;
     background-size: contain;
   }
 }

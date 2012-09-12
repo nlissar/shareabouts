@@ -17,8 +17,13 @@
           </span>
         </header>
 
-        <section class="description">
-          <p>{{ description }}</p>
+        <section class="place-items">
+          {{# items }}
+          <div class="place-item place-item-{{ name }}">
+            <span class="place-label place-label-{{ name }}">{{ label }}</span>
+            <p class="place-value place-value-{{ name }}">{{ value }}</p>
+          </div>
+          {{/ items }}
         </section>
 
         {{#survey_config}}

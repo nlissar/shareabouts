@@ -16,6 +16,9 @@ var Shareabouts = Shareabouts || {};
       this.collection.on('remove', this.onRemovePlace, this);
       this.collection.on('reset', this.onResetPlaces, this);
 
+      // Only append the tools to add places (if supported)
+      $('#map-container').append(ich['add-places'](this.options.placeConfig));
+
       this.pagesNavView = (new S.PagesNavView({
               el: '#pages-nav-container',
               pagesConfig: this.options.pagesConfig,
@@ -87,7 +90,7 @@ var Shareabouts = Shareabouts || {};
           centerLatLng = map.getCenter(),
           centerPoint = map.latLngToLayerPoint(centerLatLng),
           mapSize = map.getSize(),
-          offsetPoint = new L.Point(centerPoint.x - mapSize.x * this.offsetRatio.x,
+          offsetPoint = L.point(centerPoint.x - mapSize.x * this.offsetRatio.x,
                                     centerPoint.y - mapSize.y * this.offsetRatio.y);
       return map.layerPointToLatLng(offsetPoint);
     },
@@ -97,8 +100,8 @@ var Shareabouts = Shareabouts || {};
           pos = map.latLngToLayerPoint(latLng);
 
       return map.layerPointToLatLng(
-        new L.Point(pos.x + this.offsetRatio.x * mapSize.x,
-                    pos.y + this.offsetRatio.y * mapSize.y) );
+        L.point(pos.x + this.offsetRatio.x * mapSize.x,
+                pos.y + this.offsetRatio.y * mapSize.y) );
     },
     onMapMoveStart: function(evt) {
       this.$centerpoint.addClass('dragging');
@@ -112,11 +115,7 @@ var Shareabouts = Shareabouts || {};
     },
     onClickClosePanelBtn: function(evt) {
       evt.preventDefault();
-      this.hidePanel();
-      this.hideNewPin();
-      this.destroyNewModels();
-      this.showAddButton();
-      this.options.router.navigate('/');
+      this.options.router.navigate('/', {trigger: true});
     },
     // This gets called for every model that gets added to the place
     // collection, not just new ones.
@@ -125,12 +124,15 @@ var Shareabouts = Shareabouts || {};
             model: model,
             appView: this,
             router: this.options.router,
-            placeTypes: this.options.placeTypes
+            defaultPlaceTypeName: this.options.defaultPlaceTypeName,
+            placeTypes: this.options.placeTypes,
+            placeConfig: this.options.placeConfig
           }),
           placeDetailView = new S.PlaceDetailView({
             model: model,
             surveyConfig: this.options.surveyConfig,
             supportConfig: this.options.supportConfig,
+            placeConfig: this.options.placeConfig,
             userToken: this.options.userToken
           });
 
@@ -159,6 +161,12 @@ var Shareabouts = Shareabouts || {};
         self.onAddPlace(model);
       });
     },
+    viewMap: function() {
+      this.hidePanel();
+      this.hideNewPin();
+      this.destroyNewModels();
+      this.showAddButton();
+    },
     newPlace: function() {
       // Called by the router
       this.collection.add({});
@@ -177,7 +185,7 @@ var Shareabouts = Shareabouts || {};
         this.destroyNewModels();
         this.hideCenterPoint();
         this.hideAddButton();
-        map.panTo(this.getOffsetCenter(new L.LatLng(location.lat, location.lng)));
+        map.panTo(this.getOffsetCenter(L.latLng(location.lat, location.lng)));
 
         // Focus the one we're looking
         model.trigger('focus');

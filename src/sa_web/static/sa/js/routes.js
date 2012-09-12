@@ -3,6 +3,7 @@ var Shareabouts = Shareabouts || {};
 (function(S, $, console){
   S.App = Backbone.Router.extend({
     routes: {
+      '': 'viewMap',
       'place/new': 'newPlace',
       'place/:id': 'viewPlace',
       'place/:id/edit': 'editPlace',
@@ -21,11 +22,13 @@ var Shareabouts = Shareabouts || {};
         el: 'body',
         collection: this.collection,
         activities: this.activities,
+        defaultPlaceTypeName: options.defaultPlaceTypeName,
         placeTypes: options.placeTypes,
         surveyConfig: options.surveyConfig,
         supportConfig: options.supportConfig,
         pagesConfig: options.pagesConfig,
         mapConfig: options.mapConfig,
+        placeConfig: options.placeConfig,
         userToken: options.userToken,
         router: this
       });
@@ -36,7 +39,12 @@ var Shareabouts = Shareabouts || {};
       this.activities.reset(options.activity);
 
       // Start tracking the history
-      Backbone.history.start({pushState: true});
+      var historyOptions = {pushState: true};
+      if (options.defaultPlaceTypeName) {
+        historyOptions.root = '/' + options.defaultPlaceTypeName + '/';
+      }
+
+      Backbone.history.start(historyOptions);
 
       // Load the default page only if there is no page already in the url
       if (Backbone.history.getFragment() === '') {
@@ -48,6 +56,10 @@ var Shareabouts = Shareabouts || {};
           this.navigate('page/' + startPageConfig.slug);
         }
       }
+    },
+
+    viewMap: function() {
+      this.appView.viewMap();
     },
 
     newPlace: function() {

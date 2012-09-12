@@ -69,12 +69,6 @@ var Shareabouts = Shareabouts || {};
 
     onAddAction: function(model, collection, options) {
       this.renderAction(model, options.index);
-
-      // ===== IMPORTANT =====
-      // TODO: The following should only happen when this client instance gets
-      //       a new place created action that was initiated by a different
-      //       client instance.  I'm not sure what effect it's having now.
-      this.options.places.add(model.get('data'));
     },
 
     onResetActivity: function(collection) {
@@ -82,58 +76,80 @@ var Shareabouts = Shareabouts || {};
     },
 
     renderAction: function(model, index) {
-      var actionType = model.get('type'),
+      var self = this,
+          actionType = model.get('type'),
           isPlaceAction = (actionType === 'places'),
           surveyConfig = this.options.surveyConfig,
           supportConfig = this.options.supportConfig,
           placeData,
           modelData,
           actionText,
-          $template;
+          $template,
+          placeType,
+          placeModel = this.options.places.get(model.get('place_id'));
 
-      // Get the place that the action is about.
-      if (isPlaceAction) {
-        placeData = model.get('data');
-      } else {
-        placeData = this.options.places.get(model.get('place_id')).toJSON();
+      // Handle when placeModel is undefined (ie a new place added elsewhere)
+      if (!placeModel) {
+        // Update the place collection and then render this action
+        this.options.places.fetch({
+          success: function() {
+            self.renderAction(model, index);
+          }
+        });
+        return;
+      }
 
-        if (actionType == surveyConfig.submission_type) {
-          actionText = this.options.surveyConfig.action_text;
-        } else if (actionType == supportConfig.submission_type) {
-          actionText = this.options.supportConfig.action_text;
+      placeType = this.options.placeTypes[placeModel.get('location_type')];
+
+      // Handle if an existing place type does not match the list of available
+      // place types.
+      if (placeType) {
+        // Get the place that the action is about.
+        if (isPlaceAction) {
+          placeData = model.get('data');
+        } else {
+          placeData = this.options.places.get(model.get('place_id')).toJSON();
+
+          if (actionType === surveyConfig.submission_type) {
+            // Survey
+            actionText = this.options.surveyConfig.action_text;
+          } else if (actionType === supportConfig.submission_type) {
+            // Support
+            actionText = this.options.supportConfig.action_text;
+          }
         }
-      }
 
-      // Check whether the location type starts with a vowel; useful for
-      // choosing between 'a' and 'an'.  Not language-independent.
-      if ('aeiou'.indexOf(placeData['location_type'][0]) > -1) {
-        placeData['type_starts_with_vowel'] = true;
-      }
+        // Check whether the location type starts with a vowel; useful for
+        // choosing between 'a' and 'an'.  Not language-independent.
+        if ('aeiou'.indexOf(placeData['location_type'][0]) > -1) {
+          placeData['type_starts_with_vowel'] = true;
+        }
 
-      modelData = _.extend({
-        submitter_is_anonymous: (!model.get('data').submitter_name),
-        place: placeData,
-        action: actionText,
-        is_place: isPlaceAction
-      }, model.toJSON());
+        modelData = _.extend({
+          submitter_is_anonymous: (!model.get('data').submitter_name),
+          place: placeData,
+          action: actionText,
+          is_place: isPlaceAction
+        }, model.toJSON());
 
-      modelData.action = actionText;
+        modelData.action = actionText;
 
-      $template = ich['activity-list-item'](modelData);
+        $template = ich['activity-list-item'](modelData);
 
-      if (index >= this.$el.children().length) {
-        this.$el.append($template);
-      } else {
-        $template
-          // Hide first so that slideDown does something
-          .hide()
-          // Insert before the index-th element
-          .insertBefore(this.$el.find('.activity-item:nth-child('+index+1+')'))
-          // Nice transition into view ()
-          .slideDown();
+        if (index >= this.$el.children().length) {
+          this.$el.append($template);
+        } else {
+          $template
+            // Hide first so that slideDown does something
+            .hide()
+            // Insert before the index-th element
+            .insertBefore(this.$el.find('.activity-item:nth-child('+index+1+')'))
+            // Nice transition into view ()
+            .slideDown();
 
-        // Just adds it with no transition
-        // this.$el.find('.activity-item:nth-child('+index+1+')').before($template);
+          // Just adds it with no transition
+          // this.$el.find('.activity-item:nth-child('+index+1+')').before($template);
+        }
       }
     },
 
@@ -142,14 +158,7 @@ var Shareabouts = Shareabouts || {};
 
       self.$el.empty();
       self.collection.each(function(model) {
-        // Handle if an existing place type does not match the list of available
-        // place types.
-        var placeModel = self.options.places.get(model.get('place_id')),
-            placeType = self.options.placeTypes[placeModel.get('location_type')];
-
-        if (placeType) {
-          self.renderAction(model, self.collection.length);
-        }
+        self.renderAction(model, self.collection.length);
       });
       return self;
     }

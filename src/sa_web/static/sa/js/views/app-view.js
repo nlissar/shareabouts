@@ -35,16 +35,21 @@ var Shareabouts = Shareabouts || {};
         placeTypes: this.options.placeTypes
       });
 
-      // Init the view for displaying user activity
-      this.activityView = new S.ActivityView({
-        el: 'ul.recent-points',
-        collection: this.activities,
-        places: this.places,
-        router: this.options.router,
-        placeTypes: this.options.placeTypes,
-        surveyConfig: this.options.surveyConfig,
-        supportConfig: this.options.supportConfig
-      });
+      // Activity is enabled by default (undefined) or by enabling it
+      // explicitly. Set it to a falsey value to disable activity.
+      if (_.isUndefined(this.options.activityConfig.enabled) ||
+        this.options.activityConfig.enabled) {
+        // Init the view for displaying user activity
+        this.activityView = new S.ActivityView({
+          el: 'ul.recent-points',
+          collection: this.activities,
+          places: this.places,
+          router: this.options.router,
+          placeTypes: this.options.placeTypes,
+          surveyConfig: this.options.surveyConfig,
+          supportConfig: this.options.supportConfig
+        });
+      }
 
       // Cache panel elements that we use a lot
       this.$panel = $('#content');
@@ -90,7 +95,7 @@ var Shareabouts = Shareabouts || {};
           centerLatLng = map.getCenter(),
           centerPoint = map.latLngToLayerPoint(centerLatLng),
           mapSize = map.getSize(),
-          offsetPoint = new L.Point(centerPoint.x - mapSize.x * this.offsetRatio.x,
+          offsetPoint = L.point(centerPoint.x - mapSize.x * this.offsetRatio.x,
                                     centerPoint.y - mapSize.y * this.offsetRatio.y);
       return map.layerPointToLatLng(offsetPoint);
     },
@@ -100,8 +105,8 @@ var Shareabouts = Shareabouts || {};
           pos = map.latLngToLayerPoint(latLng);
 
       return map.layerPointToLatLng(
-        new L.Point(pos.x + this.offsetRatio.x * mapSize.x,
-                    pos.y + this.offsetRatio.y * mapSize.y) );
+        L.point(pos.x + this.offsetRatio.x * mapSize.x,
+                pos.y + this.offsetRatio.y * mapSize.y) );
     },
     onMapMoveStart: function(evt) {
       this.$centerpoint.addClass('dragging');
@@ -185,7 +190,7 @@ var Shareabouts = Shareabouts || {};
         this.destroyNewModels();
         this.hideCenterPoint();
         this.hideAddButton();
-        map.panTo(this.getOffsetCenter(new L.LatLng(location.lat, location.lng)));
+        map.panTo(this.getOffsetCenter(L.latLng(location.lat, location.lng)));
 
         // Focus the one we're looking
         model.trigger('focus');

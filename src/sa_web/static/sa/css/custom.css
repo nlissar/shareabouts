@@ -69,6 +69,9 @@ a:hover {
 /* =Mobile Navigation Button
 -------------------------------------------------------------- */
 
+/* NOTE: Override the Mobile Navigation Button with caution.
+ * The Helvetica stack produces a good icon. */
+
 a#nav-bttn:link,
 a#nav-bttn:visited {
   color: #fff;
@@ -119,8 +122,8 @@ a.add-place:hover {
 /* =Close Content Button
 -------------------------------------------------------------- */
 
-/* NOTE: The font should be overridden with caution.
- * This Helvetica stack produces a good X close icon. */
+/* NOTE: Override the Close Button font within the span. The link should
+ * remain the Helvetica stack, as it produces a good X close icon. */
 
 a.close-bttn {
   color: #bbb;
@@ -239,4 +242,21 @@ ul.recent-points {
   #access ul ul a {
     background-color: #eee;
   }
+}
+
+
+/* =Media Queries
+-------------------------------------------------------------- */
+
+@media only screen and (min-width: 768px) { /* menu is visible */
+  #access {
+/*    border: 0;*/
+/*    background: transparent;*/
+  }
+}
+
+@media only screen and (min-width: 1024px) { /* ticker is visible */
+}
+
+@media only screen and (min-width: 1300px) {
 }

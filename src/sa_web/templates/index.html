@@ -50,7 +50,7 @@
 <body>
 
   <header id="site-header" class="clearfix">
-    <h1 id="site-title"><a href="#">{% trans "App Name"  %}</a></h1>
+    <h1 id="site-title"><a href="/">{% trans "App Name"  %}</a></h1>
     <div id="pages-nav-container"></div>
   </header>
 
@@ -71,7 +71,7 @@
     </div>
 
     <div id="content">
-      <a href="#" class="close-bttn">&times;<span>{% trans "Close Button" %}</span></a>
+      <a href="#" class="close-bttn">&#10005;<span> {% trans "Close Button" %}</span></a>
       <article class="point"><!-- .point or .page -->
       </article>
     </div><!-- end #content -->
@@ -165,12 +165,13 @@
         supportConfig = {{ support_config_json|safe }},
         pagesConfig = {{ pages_config_json|safe }},
         mapConfig = {{ map_config_json|safe }},
+        activityConfig = {{ activity_config_json|safe }},
 
         defaultPlaceTypeName = '{{ default_place_type }}';
 
     // Define each Leaflet Icon type
     _.each(placeTypeIconsConfig, function(config, name) {
-      placeTypeIcons[name] = L.Icon.extend({
+      placeTypeIcons[name] = L.icon({
         iconUrl: config.iconUrl,
         shadowUrl: config.shadowUrl,
         iconSize: new L.Point(config.iconSize.width, config.iconSize.height),
@@ -184,8 +185,8 @@
 
       if (!defaultPlaceTypeName || name.toLowerCase() === defaultPlaceTypeName.toLowerCase()) {
         placeTypes[name] = {
-          'default': new placeTypeIcons[config['default']](),
-          'focused': new placeTypeIcons[config.focused]()
+          'default': placeTypeIcons[config['default']],
+          'focused': placeTypeIcons[config.focused]
         };
 
         // Update in case if there is a case issue
@@ -207,7 +208,8 @@
         supportConfig: supportConfig,
         pagesConfig: pagesConfig,
         mapConfig: mapConfig,
-        placeConfig: placeConfig
+        placeConfig: placeConfig,
+        activityConfig: activityConfig
       });
     });
   })(Shareabouts, jQuery);

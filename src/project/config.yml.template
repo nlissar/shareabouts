@@ -1,6 +1,6 @@
 # The Shareabouts API dataset username & name used by this map.
 # You MUST change this after creating a dataset.
-dataset: bicycle-coalition/rr-stations
+dataset: openplans/rr-stations
 # And the associated API key.
 dataset_api_key: AbcXyzPdq
 
@@ -97,3 +97,11 @@ pages:
     slug: about
     url: /static/sa/pages/overview.html
     start_page: true
+  - title: Download
+    pages:
+      - title: Station Data
+        external: true
+        url: /download/places.csv
+      - title: Parking Data
+        external: true
+        url: /download/surveys.csv

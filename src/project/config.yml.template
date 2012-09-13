@@ -127,3 +127,6 @@ pages:
     slug: about
     url: /static/sa/pages/overview.html
     start_page: true
+  - title: Download the Data!
+    external: true
+    url: /download/places.csv

@@ -2,7 +2,7 @@
 # You MUST change this after creating a dataset.
 dataset: demo-user/cb7-demo
 # And the associated API key.
-dataset_api_key: NDQzYmY5ZjdhMWM1OTYxMTg5YWZmY2U3
+dataset_api_key: abcdefghigklmnop
 
 # Settings for map and layer configs
 map:
@@ -21,13 +21,13 @@ map:
 # The keys show up in the dropdown list when you are adding a new place
 # The values map the place type to map icons (defined below).
 place_types:
-  School:
+  Great Place:
     default: green_feature
     focused: green_focussed
-  'Sidewalk Crack':
+  Potential Place:
     default: red_feature
     focused: red_focussed
-  SRO:
+  Problem Place:
     default: blue_feature
     focused: blue_focussed
 
@@ -95,29 +95,24 @@ place_type_icons:
       x: 12
       y: 41
 
-
-activity:
-  # Optional. Activity is supported by default. Set to false to disable.
-  enabled: true
-
 place:
   adding_supported: true
   title: Tell us more...
   items:
-    - prompt: Feature Name
+    - prompt: Place Name
       type: text
       name: name
       attrs:
         - key: placeholder
-          value: "The feature's name, or a short description..."
+          value: "Name"
         - key: size
           value: 30
-    - prompt: Type of Feature
+    - prompt: Type of Place
       type: select
       options:
-        - School
-        - Sidewalk Crack
-        - SRO
+        - Great Place
+        - Potential Place
+        - Problem Place
       name: location_type
     - prompt: Your Name
       type: text
@@ -134,7 +129,7 @@ place:
       optional: true
       attrs:
         - key: placeholder
-          value: Description of the feature...
+          value: Description...
 
 survey:
   submission_type: comments
@@ -169,20 +164,20 @@ pages:
     url: /static/sa/pages/about.html
     start_page: true
 
-  - title: Types of Places
+  - title: Community Places
     pages:
       - title: All
         external: true
         url: /
 
-      - title: Schools
+      - title: Great Places
         external: true
-        url: /school
+        url: /great place
 
-      - title: Sidewalk Cracks
+      - title: Potential Places
         external: true
-        url: /sidewalk crack
+        url: /potential place
 
-      - title: SROs
+      - title: Problem Places
         external: true
-        url: /sro
+        url: /problem place

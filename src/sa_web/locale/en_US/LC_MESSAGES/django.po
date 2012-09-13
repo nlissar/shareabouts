@@ -112,7 +112,7 @@ msgstr "Description"
 
 #: jstemplates/place-form.html:8
 msgid "Submit Location Button"
-msgstr "Add the Feature"
+msgstr "Add"
 
 #: jstemplates/submitter-or-anonymous.html:1
 msgid "Anonymous Name"
@@ -155,16 +155,16 @@ msgstr ""
 
 #: templates/index.html:15
 msgid "App Title"
-msgstr "CB7 Community Map"
+msgstr "Our Community Map"
 
 #: templates/index.html:16
 msgid "App Description"
-msgstr "CB7 Community Map is a mapping tool to gather crowd sourced public input in Manhattan's Upper West Side."
+msgstr "Our Community Map is a mapping tool to gather crowd sourced public input our community's places, the great ones and soon-to-be great ones!"
 
 #: templates/index.html:53 templates/index.html.py:62 templates/index.html:63
 msgid "App Name"
-msgstr "CB7 Community Map"
+msgstr "Our Community Map"
 
 #: templates/index.html:71
 msgid "Add Place"
-msgstr "Add a Feature"
+msgstr "Add a Place"

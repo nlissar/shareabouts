@@ -159,3 +159,7 @@ pages:
   - title: Instructions
     slug: instructions
     url: /static/sa/pages/instructions.html
+
+  - title: Download Surveys
+    external: true
+    url: /download/surveys.csv

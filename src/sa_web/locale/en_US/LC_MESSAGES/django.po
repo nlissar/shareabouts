@@ -137,11 +137,11 @@ msgstr ""
 
 #: templates/index.html:15
 msgid "App Title"
-msgstr "Shareabouts"
+msgstr "Bike Parking Survey"
 
 #: templates/index.html:16
 msgid "App Description"
-msgstr "Shareabouts is a mapping tool to gather crowd sourced public input. Use it to collect suggested locations and comments in a social, engaging process."
+msgstr "The Bike Parking Survey is a way to crowdsource bike parking availability at local train stations."
 
 #: templates/index.html:53 templates/index.html.py:62 templates/index.html:63
 msgid "App Name"
